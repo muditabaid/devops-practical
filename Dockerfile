@@ -1,16 +1,20 @@
-FROM ubuntu
-RUN git clone git://github.com/swimlane/devops-practical.git
-
 FROM node:16-alpine
-ARG PROJECT_DIR="devops-practical"
+RUN apk upgrade
+RUN apk add git
+RUN git clone https://github.com/muditabaid/devops-practical.git
+#COPY . /workspace
+#RUN pwd ; ls -al ; ls -al /workspace
+WORKDIR /devops-practical
+#ARG PROJECT_DIR="devops-practical"
 ENV MONGODB_URL="mongodb://localhost:27017/database"
 
-WORKDIR $PROJECT_DIR
+#WORKDIR $PROJECT_DIR
 # Copy and download dependencies
-COPY package*.json ./
+RUN pwd; ls -al
+#COPY package*.json ./
 RUN npm install
-
+RUN cp .env.example .env
 # Copy the source files into the image
-COPY . .
+#COPY . .
 EXPOSE 3000
 CMD npm start
