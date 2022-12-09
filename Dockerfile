@@ -7,7 +7,7 @@ RUN git clone https://github.com/muditabaid/devops-practical.git
 
 WORKDIR /devops-practical
 #ARG PROJECT_DIR="devops-practical"
-ENV MONGODB_URL="mongodb://mongodb:27017/database"
+ENV MONGODB_URL="mongodb://mongo:27017/database"
 
 #WORKDIR $PROJECT_DIR
 # Copy and download dependencies
