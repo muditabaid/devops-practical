@@ -1,4 +1,5 @@
-FROM node:16-alpine
+FROM --platform=linux/amd64 node:16-alpine
+# FROM node:16-alpine
 RUN apk upgrade
 RUN apk add git
 RUN git clone https://github.com/muditabaid/devops-practical.git
