@@ -1,0 +1,15 @@
+version: "3"
+services:
+  devops-practical:
+    container_name: devops-practical
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
